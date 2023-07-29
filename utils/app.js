@@ -1,4 +1,5 @@
 import get from "./getElement.js";
+import fetchUser from "./fetchUser.js";
 
 const URL = "https://randomuser.me/api/";
 
@@ -7,12 +8,13 @@ const title = get(".user-title");
 const value = get(".user-value");
 const btn = get(".btn");
 const btns = [...document.querySelectorAll(".icon")];
-console.log(btns);
 
-const fetchUser = async () => {
-  const response = await fetch(URL);
-  const data = await response.json();
-  console.log(data.results[0]);
+const showUser = async () => {
+  // fetch user
+  const person = await fetchUser(URL);
+
+  // display user
 };
 
-// fetchUser(URL);
+window.addEventListener("DOMContentLoaded", showUser);
+btn.addEventListener("click", showUser);
